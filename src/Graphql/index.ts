@@ -1,5 +1,5 @@
 export { BaseSchema } from './Base.schemas'
-export { Edge } from './Edge'
+export { Edge } from './Interfaces/Edge'
 export { GqlPaginationFilter } from './GqlPaginationFilter'
-export { PageInfo } from './PageInfo'
-export { Response } from './Response'
+export { PageInfo } from './Interfaces/PageInfo'
+export { Response } from './Interfaces/Response'
