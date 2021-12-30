@@ -11,9 +11,6 @@
         "coverage": "npx jest --coverage",
         "prepare": "npm run build"
     },
-    "directories": {
-        "lib": "./src"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/DoocaCommerce/dc-node-backend.git"
