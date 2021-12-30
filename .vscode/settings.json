@@ -1,7 +1,0 @@
-{
-    "cSpell.words": ["bodyparser", "Emptiable", "Hotsite", "middlewares", "tsyringe"],
-    "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
-    "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-}
