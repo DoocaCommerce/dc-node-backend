@@ -1,4 +1,4 @@
-import { Application } from '../'
+import { Application } from '..'
 import { TestBootstrap } from './__mocks__/TestBootstrap'
 import { TestProcess } from './__mocks__/TestProcess'
 
