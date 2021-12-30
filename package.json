@@ -1,11 +1,15 @@
 {
     "name": "dc-node-backend",
     "version": "0.0.1",
-    "description": "Core para desenvolvimento de Apps de backend",
-    "main": "main.js",
+    "description": "Core Node.js/TypeScript para desenvolvimento de Apps de backend",
+    "main": "./dist/index.js",
+    "source": "./dist",
+    "types": "./dist/index.d.ts",
     "scripts": {
+        "build": "tsc",
         "test": "npx jest",
-        "coverage": "npx jest --coverage"
+        "coverage": "npx jest --coverage",
+        "prepare": "npm run build"
     },
     "repository": {
         "type": "git",

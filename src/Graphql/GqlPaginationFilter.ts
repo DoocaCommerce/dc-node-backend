@@ -1,5 +1,5 @@
+import { Maybe } from '..'
 import { PaginationFilter } from '../Base/Filters/PaginationFilter'
-import { Maybe } from '../Shared/Maybe'
 
 export class GqlPaginationFilter implements PaginationFilter {
     private constructor(private page: number, private first: number) {}
