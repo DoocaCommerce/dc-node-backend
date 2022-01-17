@@ -1,5 +1,16 @@
 export { Application, Bootstrap, Process } from './Application'
 export {
+    Cache,
+    CacheKeyBuilder,
+    CacheKeyNotFoundDoocaException,
+    CacheKeyParams,
+    CacheParams,
+    CacheRememberParams,
+    CacheStore,
+    CacheTypeEnum,
+    CreateDataCache
+} from './Base/Cache'
+export {
     DataTypeEnum,
     FilterBase,
     Finder,

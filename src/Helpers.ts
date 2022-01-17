@@ -22,6 +22,8 @@ export function isNotEmpty(value: any): boolean {
     return not(isEmpty(value))
 }
 
+export const filled = isNotEmpty
+
 export function parseStringToJson(value: string): any {
     if (value == 'undefined') return undefined
     return JSON.parse(value)
