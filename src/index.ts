@@ -25,3 +25,4 @@ export {
     TokenFilter,
     Transformer
 } from './Base'
+export { DbCommand, DbCommandType, DbConnection, DbResult } from './Base/DB'
