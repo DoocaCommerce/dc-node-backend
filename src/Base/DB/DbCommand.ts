@@ -1,5 +1,5 @@
 import { DbResult } from './DbResult'
 
-export interface DbCommand {
-    execute<T>(): Promise<DbResult<T>>
+export interface DbCommand<F = any, R = any> {
+    execute(filter: F): Promise<DbResult<R>>
 }
