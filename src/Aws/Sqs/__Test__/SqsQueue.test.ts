@@ -1,11 +1,11 @@
-import { Queue } from '../../../Base/Queue'
+import { Queue, QueueItem } from '../../../Base/Queue'
 import { SqsQueue } from '../SqsQueue'
 import { AddSqsQueueItem } from '../Items/AddSqsQueueItem'
 import { not } from '../../../Helpers'
 import { config } from 'dotenv'
 
 describe('SQS Queue', () => {
-    let queue: Queue
+    let queue: Queue<QueueItem>
 
     beforeAll(async () => {
         config()
