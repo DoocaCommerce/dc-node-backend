@@ -6,7 +6,7 @@ export function buildPageInfo<T>(pagination: Paginated<T>): PageInfo {
     return {
         hasNextPage: pagination.getCurrentPage() < pagination.getLastPage(),
         hasPreviousPage: pagination.getCurrentPage() > 1,
-        startCursor: first(pagination.getPageData()).id,
-        endCursor: last(pagination.getPageData()).id
+        startCursor: first<any>(pagination.getPageData()).id,
+        endCursor: last<any>(pagination.getPageData()).id
     }
 }
