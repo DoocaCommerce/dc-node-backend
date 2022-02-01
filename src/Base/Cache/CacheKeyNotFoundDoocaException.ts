@@ -1,4 +1,4 @@
-import { NotFoundDoocaException } from '../../Exceptions'
+import { NotFoundDoocaException } from '../Exceptions'
 
 export class CacheKeyNotFoundDoocaException extends NotFoundDoocaException {
     constructor() {

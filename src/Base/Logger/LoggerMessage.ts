@@ -1,3 +1,3 @@
 export interface LoggerMessage<T = any> {
-    getData(): T
+    getMessage(): T
 }

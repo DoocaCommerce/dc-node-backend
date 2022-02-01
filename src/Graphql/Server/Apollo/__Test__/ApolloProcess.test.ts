@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import { gql } from 'apollo-server'
 import { ApolloProcess } from '..'
 import {

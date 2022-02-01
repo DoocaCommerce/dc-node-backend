@@ -11,3 +11,8 @@ export { PaginatedFinder } from './PaginatedFinder'
 export { Presenter } from './Presenter'
 export { Transformer } from './Transformer'
 export { FilterBase, PaginationFilter, TokenFilter } from './Filters'
+export {
+    DoocaException,
+    NotFoundDoocaException,
+    NotImplementedYetDoocaException
+} from './Exceptions'

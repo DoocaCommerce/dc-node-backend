@@ -35,11 +35,11 @@ export function parseJsonToString(value: any): string {
     return JSON.stringify(value)
 }
 
-export function first(items: any[]): any {
+export function first<T = any>(items: T[]): T {
     return items[0]
 }
 
-export function last(items: any[]): any {
+export function last<T = any>(items: T[]): T {
     return first(items.splice(-1))
 }
 
