@@ -1,4 +1,5 @@
 import { SendMessageCommandInput } from '@aws-sdk/client-sqs'
+import { QueueItemAttribute } from '../../../Base/Queue/QueueItemAttribute'
 import { isEmpty } from '../../../Helpers'
 import { SqsQueueItem } from '../SqsQueueItem'
 
@@ -25,5 +26,9 @@ export class AddSqsQueueItem extends SqsQueueItem<SendMessageCommandInput> {
 
     isEmpty(): boolean {
         return isEmpty(this.messageBody) && isEmpty(this.queueUrl)
+    }
+
+    getAttributes(): QueueItemAttribute<any>[] {
+        return []
     }
 }

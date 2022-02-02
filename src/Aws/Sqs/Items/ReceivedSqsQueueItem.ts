@@ -1,4 +1,5 @@
 import { Message, ReceiveMessageCommandOutput, SendMessageCommandInput } from '@aws-sdk/client-sqs'
+import { QueueItemAttribute } from '../../../Base/Queue/QueueItemAttribute'
 import { first, isEmpty } from '../../../Helpers'
 import { SqsQueueItem } from '../SqsQueueItem'
 
@@ -17,6 +18,10 @@ export class ReceivedSqsQueueItem extends SqsQueueItem<string> {
 
     isEmpty(): boolean {
         return isEmpty(this.messageBody) && isEmpty(this.receiptHandle)
+    }
+
+    getAttributes(): QueueItemAttribute<any>[] {
+        return []
     }
 
     static fromReceivedMessage(received: ReceiveMessageCommandOutput): ReceivedSqsQueueItem {
