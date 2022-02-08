@@ -12,6 +12,7 @@ describe('SQS Queue', () => {
 
         queue = new SqsQueue({
             region: process.env.AWS_REGION as string,
+            endpoint: process.env.AWS_ENDPOINT as string,
             accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
             secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
             queueUrl: process.env.AWS_QUEUE_URL as string

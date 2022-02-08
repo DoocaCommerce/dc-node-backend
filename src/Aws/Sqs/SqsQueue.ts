@@ -16,6 +16,7 @@ export class SqsQueue implements Queue<SqsQueueItem> {
     constructor(private config: SqsConfig) {
         this.sqs = new SQSClient({
             region: config.region,
+            endpoint: config.endpoint,
             credentials: {
                 accessKeyId: config.accessKeyId,
                 secretAccessKey: config.secretAccessKey

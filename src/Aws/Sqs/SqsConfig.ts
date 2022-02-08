@@ -3,4 +3,5 @@ export interface SqsConfig {
     accessKeyId: string
     secretAccessKey: string
     queueUrl: string
+    endpoint?: string
 }
