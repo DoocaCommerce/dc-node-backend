@@ -12,6 +12,8 @@ export { Presenter } from './Presenter'
 export { Transformer } from './Transformer'
 export { FilterBase, PaginationFilter, TokenFilter } from './Filters'
 export { Queue, QueueItem } from './Queue'
+export { Converter } from './Converter'
+export { Json } from './Json'
 export {
     DoocaException,
     NotFoundDoocaException,
