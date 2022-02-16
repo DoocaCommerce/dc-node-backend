@@ -2,5 +2,8 @@ export enum DbCommandType {
     QUERY,
     INSERT,
     UPDATE,
-    DELETE
+    DELETE,
+    CREATE_TABLE,
+    DROP_TABLE,
+    ALTER_TABLE
 }
