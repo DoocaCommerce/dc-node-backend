@@ -1,7 +1,7 @@
 import { DbConnection } from '.'
 
-export abstract class DbMigration {
-    constructor(protected conn: DbConnection) {}
+export abstract class DbMigration<T extends DbConnection> {
+    constructor(protected conn: T) {}
 
     abstract up(): void
     abstract down(): void
