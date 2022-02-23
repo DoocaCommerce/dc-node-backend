@@ -28,3 +28,4 @@ export {
     QueueItem
 } from './Base'
 export { DbCommand, DbCommandType, DbConnection, DbResult } from './Base/DB'
+export { Either, Left, Right } from './Base/Either'

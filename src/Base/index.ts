@@ -1,5 +1,5 @@
 export type Whatever<T> = T | null | undefined
-export type MapCallback<T, R> = (value: T) => R
+export type MapCallback<T = any, R = any> = (value: T) => R
 
 export { DataTypeEnum } from './DataTypeEnum'
 export { Finder } from './Finder'

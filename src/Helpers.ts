@@ -1,3 +1,5 @@
+import { MapCallback } from '.'
+import { Either } from './Base/Either/Either'
 import { Maybe } from './Base/Maybe'
 
 export function not(value: any): boolean {
@@ -43,6 +45,16 @@ export function last<T = any>(items: T[]): T {
     return first(items.splice(-1))
 }
 
-export function unsafeValue<T>(maybe: Maybe<T>, defaultValue: any = null): any {
-    return maybe.unsafeValue() || defaultValue
+export function unsafeValue<T = any>(data: Maybe<T> | Either<T>, defaultValue: any = null): any {
+    return data.unsafeValue() || defaultValue
+}
+
+export function either(data: Either, success: MapCallback, error: MapCallback) {
+    const name = data.constructor.name
+    switch (name) {
+        case 'Right':
+            return unsafeValue(data.map(success))
+        case 'Left':
+            return unsafeValue(data.map(error))
+    }
 }
