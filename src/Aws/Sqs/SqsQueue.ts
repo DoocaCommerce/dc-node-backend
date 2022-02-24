@@ -5,12 +5,12 @@ import {
     SQSClient
 } from '@aws-sdk/client-sqs'
 import { Queue } from '../../Base/Queue'
-import { AddSqsQueueItem } from './Items/AddSqsQueueItem'
-import { ReceivedSqsQueueItem } from './Items/ReceivedSqsQueueItem'
 import { SqsConfig } from './SqsConfig'
-import { SqsQueueItem } from './SqsQueueItem'
+import { QueueItem } from '../../Base/Queue'
+import { QueueItemEntity } from '../../Base/Queue/QueueItemEntity'
+import { SqsQueueItemEntity } from './SqsQueueItemEntity'
 
-export class SqsQueue implements Queue<SqsQueueItem> {
+export class SqsQueue<T = any> implements Queue<QueueItem<T>> {
     private sqs: SQSClient
 
     constructor(private config: SqsConfig) {
@@ -24,29 +24,23 @@ export class SqsQueue implements Queue<SqsQueueItem> {
         })
     }
 
-    async add(item: AddSqsQueueItem): Promise<Queue<SqsQueueItem>> {
-        await this.sqs.send(
-            new SendMessageCommand(item.setQueueUrl(this.config.queueUrl).getData())
-        )
+    async add(item: QueueItem<T>): Promise<Queue<QueueItem<T>>> {
+        const MessageBody = JSON.stringify(item.getData())
+        const QueueUrl = this.config.queueUrl
+        await this.sqs.send(new SendMessageCommand({ MessageBody, QueueUrl }))
         return this
     }
 
-    async getFirstItem(): Promise<ReceivedSqsQueueItem> {
-        const receivedMessage = await this.sqs.send(
-            new ReceiveMessageCommand({
-                QueueUrl: this.config.queueUrl
-            })
-        )
-        return ReceivedSqsQueueItem.fromReceivedMessage(receivedMessage)
+    async getFirstItem(): Promise<QueueItemEntity<T>> {
+        const QueueUrl = this.config.queueUrl
+        const receivedMessage = await this.sqs.send(new ReceiveMessageCommand({ QueueUrl }))
+        return SqsQueueItemEntity.getFirst(receivedMessage.Messages)
     }
 
-    async removeItem(item: ReceivedSqsQueueItem): Promise<Queue<SqsQueueItem>> {
-        await this.sqs.send(
-            new DeleteMessageCommand({
-                QueueUrl: this.config.queueUrl,
-                ReceiptHandle: item.getReceiptHandle()
-            })
-        )
+    async removeItem(item: QueueItemEntity<T>): Promise<Queue<QueueItem<T>>> {
+        const QueueUrl = this.config.queueUrl
+        const ReceiptHandle = item.getId()
+        await this.sqs.send(new DeleteMessageCommand({ QueueUrl, ReceiptHandle }))
         return this
     }
 }

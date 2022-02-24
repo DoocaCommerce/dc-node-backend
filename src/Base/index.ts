@@ -14,6 +14,7 @@ export { FilterBase, PaginationFilter, TokenFilter } from './Filters'
 export { Queue, QueueItem } from './Queue'
 export { Converter } from './Converter'
 export { Json } from './Json'
+export { Entity } from './Entity'
 export { JsonTransform } from './JsonTransform'
 export {
     DoocaException,

@@ -1,8 +1,8 @@
 import { Queue, QueueItem } from '../../../Base/Queue'
 import { SqsQueue } from '../SqsQueue'
-import { AddSqsQueueItem } from '../Items/AddSqsQueueItem'
 import { not } from '../../../Helpers'
 import { config } from 'dotenv'
+import { TestQueueItem } from './TestQueueItem'
 
 describe('SQS Queue', () => {
     let queue: Queue<QueueItem>
@@ -20,7 +20,7 @@ describe('SQS Queue', () => {
     })
 
     beforeEach(async () => {
-        await queue.add(new AddSqsQueueItem(`TEST ${Math.floor(Math.random() * 10)}`))
+        await queue.add(new TestQueueItem(`TEST ${Math.floor(Math.random() * 10)}`))
     })
 
     it('get and remove item', async () => {
