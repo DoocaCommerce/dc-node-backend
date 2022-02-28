@@ -6,7 +6,7 @@ import { ApolloServerContext } from './ApolloServerContext'
 import { ApolloServer } from 'apollo-server'
 
 export interface ApolloServerConfig {
-    port: number
+    port?: number
 }
 export abstract class ApolloProcess implements Process {
     private isRunning: boolean = false
