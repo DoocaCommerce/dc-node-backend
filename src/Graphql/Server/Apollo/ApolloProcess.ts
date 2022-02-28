@@ -5,6 +5,9 @@ import { Application, Maybe, Process } from '../../..'
 import { ApolloServerContext } from './ApolloServerContext'
 import { ApolloServer } from 'apollo-server'
 
+export interface ApolloServerConfig {
+    port: number
+}
 export abstract class ApolloProcess implements Process {
     private isRunning: boolean = false
     private server?: ApolloServer
@@ -12,7 +15,8 @@ export abstract class ApolloProcess implements Process {
     constructor(
         private typeDefs: ApolloServerTypeDefs,
         private resolvers: ApolloServerResolvers,
-        private context?: ApolloServerContext
+        private context?: ApolloServerContext,
+        private config?: ApolloServerConfig
     ) {
         this.server = new ApolloServer({
             typeDefs: this.getTypeDefs(),
@@ -22,7 +26,7 @@ export abstract class ApolloProcess implements Process {
     }
 
     async execute(app: Application): Promise<void> {
-        this.server?.listen().then(({ url }) => {
+        this.server?.listen({ port: this.config?.port || 4000 }).then(({ url }) => {
             console.log(url)
             this.isRunning = true
         })
