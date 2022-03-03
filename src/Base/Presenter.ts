@@ -1,3 +1,3 @@
-export interface Presenter<T> {
+export interface Presenter<T = any> {
     getData(): T
 }
