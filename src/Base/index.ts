@@ -16,6 +16,8 @@ export { Converter } from './Converter'
 export { Json } from './Json'
 export { Entity } from './Entity'
 export { JsonTransform } from './JsonTransform'
+export { Validator } from './Validator'
+export { Satisfier } from './Satisfier'
 export {
     DoocaException,
     NotFoundDoocaException,

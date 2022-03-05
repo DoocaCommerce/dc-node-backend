@@ -25,7 +25,9 @@ export {
     TokenFilter,
     Transformer,
     Queue,
-    QueueItem
+    QueueItem,
+    Validator,
+    Satisfier
 } from './Base'
 export { DbCommand, DbCommandType, DbConnection, DbResult } from './Base/DB'
 export { Either, Left, Right } from './Base/Either'

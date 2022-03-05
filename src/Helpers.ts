@@ -1,4 +1,5 @@
 import { MapCallback } from '.'
+import { Satisfier, Validator } from './Base'
 import { Either } from './Base/Either/Either'
 import { Maybe } from './Base/Maybe'
 
@@ -43,6 +44,27 @@ export function first<T = any>(items: T[]): T {
 
 export function last<T = any>(items: T[]): T {
     return first(items.splice(-1))
+}
+
+export async function isValid<T = any>(validator: Validator<T>, data: T): Promise<boolean> {
+    try {
+        await validator.validate(data)
+        return true
+    } catch {
+        return false
+    }
+}
+
+export async function isNotValid<T = any>(validator: Validator<T>, data: T): Promise<boolean> {
+    return not(await isValid(validator, data))
+}
+
+export function isSatisfied(data: Satisfier): boolean {
+    return data.isSatisfied()
+}
+
+export function isNotSatisfied(data: Satisfier): boolean {
+    return not(data.isSatisfied())
 }
 
 export function unsafeValue<T = any>(data: Maybe<T> | Either<T>, defaultValue: any = null): any {
