@@ -59,12 +59,12 @@ export async function isNotValid<T = any>(validator: Validator<T>, data: T): Pro
     return not(await isValid(validator, data))
 }
 
-export function isSatisfied(data: Satisfier): boolean {
-    return data.isSatisfied()
+export function isSatisfied<T = any>(satisfier: Satisfier, data: T): boolean {
+    return satisfier.isSatisfied(data)
 }
 
-export function isNotSatisfied(data: Satisfier): boolean {
-    return not(data.isSatisfied())
+export function isNotSatisfied<T = any>(satisfier: Satisfier, data: T): boolean {
+    return not(satisfier.isSatisfied(data))
 }
 
 export function unsafeValue<T = any>(data: Maybe<T> | Either<T>, defaultValue: any = null): any {

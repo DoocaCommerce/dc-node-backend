@@ -1,3 +1,3 @@
-export interface Satisfier {
-    isSatisfied(): boolean
+export interface Satisfier<T = any> {
+    isSatisfied(data: T): boolean
 }
