@@ -1,5 +1,5 @@
 import { MapCallback } from '.'
-import { Satisfier, Validator } from './Base'
+import { DoocaException, Satisfier, Validator } from './Base'
 import { Either } from './Base/Either/Either'
 import { Maybe } from './Base/Maybe'
 
@@ -79,4 +79,12 @@ export function either(data: Either, success: MapCallback, error: MapCallback) {
         case 'Left':
             return unsafeValue(data.map(error))
     }
+}
+
+export function throwIf<T extends DoocaException = any>(
+    isWrong: boolean,
+    exception: new (data?: any) => T,
+    data?: any
+): void {
+    if (isWrong) throw new exception(data)
 }
