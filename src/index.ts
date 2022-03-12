@@ -46,6 +46,11 @@ export {
     throwIf
 } from './Helpers'
 export {
+    DoocaException,
+    NotFoundDoocaException,
+    NotImplementedYetDoocaException
+} from './Base/Exceptions'
+export {
     QueueItem,
     QueueItemAttribute,
     QueueItemEntity,
