@@ -1,5 +1,6 @@
 import { MapCallback } from '.'
-import { DoocaException, Satisfier, Validator } from './Base'
+import { Satisfier, Validator } from './Base'
+import { DoocaException } from './Base/Exceptions'
 import { Either } from './Base/Either/Either'
 import { Maybe } from './Base/Maybe'
 
