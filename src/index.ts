@@ -24,8 +24,6 @@ export {
     Presenter,
     TokenFilter,
     Transformer,
-    Queue,
-    QueueItem,
     Validator,
     Satisfier
 } from './Base'
@@ -47,3 +45,11 @@ export {
     either,
     throwIf
 } from './Helpers'
+export {
+    QueueItem,
+    QueueItemAttribute,
+    QueueItemEntity,
+    QueueItemRemover,
+    QueueReader,
+    Queuer
+} from './Base/Queue'
