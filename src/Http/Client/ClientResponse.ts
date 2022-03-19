@@ -1,4 +1,4 @@
-export interface ClientResponse {
+export interface ClientResponse<T = any> {
     getStatusCode(): number
-    getData(): any
+    getData(): T
 }
