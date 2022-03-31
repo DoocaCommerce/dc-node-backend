@@ -58,4 +58,13 @@ export {
     QueueReader,
     Queuer
 } from './Base/Queue'
-export { HttpMethodEnum, QueryStringInterpreter } from './Http'
+export {
+    HttpMethodEnum,
+    QueryStringInterpreter,
+    Client,
+    ClientConfig,
+    ClientEnum,
+    ClientFactory,
+    ClientResponse,
+    ClientResponsePagination
+} from './Http'
