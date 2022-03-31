@@ -58,3 +58,4 @@ export {
     QueueReader,
     Queuer
 } from './Base/Queue'
+export { HttpMethodEnum, QueryStringInterpreter } from './Http'
