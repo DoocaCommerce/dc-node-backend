@@ -6,6 +6,8 @@ export const BaseSchema = gql`
         hasPreviousPage: Boolean
         startCursor: String
         endCursor: String
+        first: Int
+        total: Int
     }
 
     interface Node {
