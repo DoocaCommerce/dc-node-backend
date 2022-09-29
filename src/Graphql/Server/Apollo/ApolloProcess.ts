@@ -1,9 +1,10 @@
-import { mergeTypeDefs, mergeResolvers } from '@graphql-tools/merge'
-import { ApolloServerResolvers } from './ApolloServerResolvers'
-import { ApolloServerTypeDefs } from './ApolloServerTypeDefs'
+import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge'
+import { ApolloServer } from 'apollo-server'
 import { Application, Maybe, Process } from '../../..'
 import { ApolloServerContext } from './ApolloServerContext'
-import { ApolloServer } from 'apollo-server'
+import { ApolloServerDataSources } from './ApolloServerDataSources'
+import { ApolloServerResolvers } from './ApolloServerResolvers'
+import { ApolloServerTypeDefs } from './ApolloServerTypeDefs'
 
 export interface ApolloServerConfig {
     port?: number
@@ -16,12 +17,14 @@ export abstract class ApolloProcess implements Process {
         private typeDefs: ApolloServerTypeDefs,
         private resolvers: ApolloServerResolvers,
         private context?: ApolloServerContext,
-        private config?: ApolloServerConfig
+        private config?: ApolloServerConfig,
+        private dataSources?: ApolloServerDataSources
     ) {
         this.server = new ApolloServer({
             typeDefs: this.getTypeDefs(),
             resolvers: this.getResolvers(),
-            context: this.getContext()
+            context: this.getContext(),
+            dataSources: dataSources?.create()
         })
     }
 
