@@ -24,7 +24,7 @@ export abstract class ApolloProcess implements Process {
             typeDefs: this.getTypeDefs(),
             resolvers: this.getResolvers(),
             context: this.getContext(),
-            dataSources: dataSources?.create()
+            dataSources: this.dataSources?.create()
         })
     }
 

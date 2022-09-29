@@ -1,6 +1,4 @@
-import { RESTDataSource } from 'apollo-datasource-rest'
-
-export type DataSourceFunction = () => { [key: string]: RESTDataSource }
+export type DataSourceFunction<T = any> = () => { [key: string]: T }
 
 export interface ApolloServerDataSources {
     create(): DataSourceFunction
