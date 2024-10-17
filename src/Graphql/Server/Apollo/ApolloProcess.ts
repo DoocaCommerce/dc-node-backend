@@ -8,6 +8,7 @@ import { ApolloServerTypeDefs } from './ApolloServerTypeDefs'
 
 export interface ApolloServerConfig {
     port?: number
+    plugins?: any[]
 }
 export abstract class ApolloProcess implements Process {
     private isRunning: boolean = false
@@ -24,7 +25,8 @@ export abstract class ApolloProcess implements Process {
             typeDefs: this.getTypeDefs(),
             resolvers: this.getResolvers(),
             context: this.getContext(),
-            dataSources: this.dataSources?.create()
+            dataSources: this.dataSources?.create(),
+            plugins: this.config?.plugins ? this.config.plugins : []
         })
     }
 
