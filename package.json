@@ -1,6 +1,6 @@
 {
     "name": "dc-node-backend",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Core Node.js/TypeScript para desenvolvimento de Apps de backend",
     "main": "./lib/index.js",
     "source": "./lib",
